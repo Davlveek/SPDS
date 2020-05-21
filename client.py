@@ -2,7 +2,7 @@ import socket
 
 
 class Client:
-    def __init_(self, ip: object, port: object):
+    def __init_(self, ip, port):
         self.server_ip = ip
         self.server_port = port
         try:
