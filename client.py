@@ -2,7 +2,7 @@ import socket
 
 
 class Client:
-    def __init_(self, ip, port):
+    def __init__(self, ip, port):
         self.server_ip = ip
         self.server_port = port
         try:
@@ -17,7 +17,7 @@ class Client:
             print(f'Connection to server({self.server_ip} failed\nException:{e})')
 
     def send(self, data):
-        pass
+        self.sock.send(data)
 
     def recv(self, size):
         pass

@@ -28,7 +28,8 @@ class Server:
         pass
 
     def recv(self, size):
-        pass
+        return self.connection.recv(size)
 
     def close(self):
+        self.connection.close()
         self.sock.close()
