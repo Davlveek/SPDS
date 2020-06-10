@@ -20,7 +20,7 @@ class Client:
         self.sock.send(data)
 
     def recv(self, size):
-        pass
+        return self.sock.recv(size)
 
     def close(self):
         try:
