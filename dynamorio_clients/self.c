@@ -11,7 +11,7 @@
 #define BUF_SIZE 64
 #define INVALID_THREAD_ID 0
 
-const char* path = "D:\\analysis\\";
+const char* path = "";
 
 file_t anti_debug_file, anti_VM_file;
 const char* AntiDebug = "[AntiDebug].txt";
@@ -87,10 +87,13 @@ dr_client_main(client_id_t id, int args, const char *argv[])
 	
 	// Register exit event
 	dr_register_exit_event(event_exit);
+	
 	// Register event for basic block
-	drmgr_register_bb_app2app_event(new_block, NULL);
+	//drmgr_register_bb_app2app_event(new_block, NULL);
+	
 	// Register trace event
 	dr_register_trace_event(new_trace);
+	
 	// Register module load and unload events
 	drmgr_register_module_load_event(event_module_load);
 	drmgr_register_module_unload_event(event_module_unload);
@@ -393,9 +396,9 @@ void write_file_stats()
 	dr_fprintf(anti_debug_file, "GetThreadContext %s\n", getThreadContext ? bad : good);
 	dr_fprintf(anti_debug_file, "NtSetInformationThread %s\n", ntSetInformationThread ? bad : good);
 	dr_fprintf(anti_debug_file, "NtCreateThreadEx %s\n", ntCreateThreadEx ? bad : good);
-	dr_fprintf(anti_debug_file, "Get PEB %s\n", get_peb ? bad : good);
-	dr_fprintf(anti_debug_file, "TrapFlag %s\n", trap_flag ? bad : good);
-	dr_fprintf(anti_debug_file, "SEH %s\n", seh ? bad : good);
+	//dr_fprintf(anti_debug_file, "Get PEB %s\n", get_peb ? bad : good);
+	//dr_fprintf(anti_debug_file, "TrapFlag %s\n", trap_flag ? bad : good);
+	//dr_fprintf(anti_debug_file, "SEH %s\n", seh ? bad : good);
 
 	dr_fprintf(anti_VM_file, "Checking Pills commands %s\n", pills_commands ? bad : good);
 	dr_fprintf(anti_VM_file, "Checking malicious commands %s\n", malicious_commands ? bad : good);
