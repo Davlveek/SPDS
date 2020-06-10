@@ -1,4 +1,5 @@
-from client import Client
+import json
+from management.net.client import Client
 
 
 class Agency(Client):
@@ -14,3 +15,7 @@ class Agency(Client):
                 if not data:
                     break
                 Client.send(self, data)
+
+    def recv_results(self):
+        data = Client.recv(self, self.size)
+        return json.loads(data.decode())
