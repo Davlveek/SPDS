@@ -1,0 +1,15 @@
+{
+  "dynamorio": {
+    "address": "127.0.0.1",
+    "port": 9000,
+    "vm": "IDA+DynamoRIO",
+    "snapshot": "test_snapshot",
+    "client": "self.dll"
+  },
+  "cuckoo": {
+    "address": "192.168.56.104",
+    "port": 9000,
+    "vm": "IDA+DynamoRIO",
+    "snapshot": "test_snapshot"
+  }
+}
