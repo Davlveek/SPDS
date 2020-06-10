@@ -14,22 +14,26 @@ class Server:
     def listen(self, backlog):
         try:
             self.sock.listen(backlog)
+            print(f'Server listining on {self.server_address[0]} port {self.server_address[1]}')
         except Exception as e:
             print(f'Listining failed\nException:{e}')
 
     def accept_connection(self):
         try:
             self.connection, addr = self.sock.accept()
+            print(f'Accepted connection: {addr}')
             return addr
         except Exception as e:
             print(f'Connection accepting failed\nException: {e}')
 
     def send(self, data):
-        pass
+        self.connection.send(data)
 
     def recv(self, size):
         return self.connection.recv(size)
 
-    def close(self):
+    def close_connection(self):
         self.connection.close()
+
+    def close_socket(self):
         self.sock.close()
