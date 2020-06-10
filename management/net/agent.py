@@ -1,4 +1,5 @@
-from server import Server
+import json
+from management.net.server import Server
 
 
 class Agent(Server):
@@ -13,3 +14,7 @@ class Agent(Server):
                 if not data:
                     break
                 f.write(data)
+
+    def send_results(self, tricks):
+        data = str.encode(json.dumps(tricks))
+        Server.send(self, data)
