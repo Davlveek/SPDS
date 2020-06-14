@@ -7,9 +7,11 @@
     "client": "self.dll"
   },
   "cuckoo": {
-    "address": "192.168.56.104",
+    "address": "192.168.0.102",
     "port": 9000,
-    "vm": "IDA+DynamoRIO",
-    "snapshot": "test_snapshot"
+    "vm": "Cuckoo",
+    "snapshot": "cuckoo_working",
+    "log_path": "/home/cuckoo/.cuckoo/log/cuckoo.log",
+    "report_path": "/home/cuckoo/.cuckoo/storage/analyses/latest/reports/report.json"
   }
 }

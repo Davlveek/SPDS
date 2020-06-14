@@ -6,7 +6,7 @@ if __name__ == '__main__':
         agent.listen(1)
         agent.accept_connection()
 
-        agent.recv_file(DynamoRioAgent.file)
+        agent.recv_file(agent.file)
         print('File received from agency')
 
         agent.start_dynamorio_analysis()

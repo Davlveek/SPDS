@@ -15,6 +15,14 @@ class Agent(Server):
                     break
                 f.write(data)
 
+    def send_file(self, file):
+        with open(file, 'rb') as f:
+            while True:
+                data = f.read(self.size)
+                if not data:
+                    break
+                Server.send(self, data)
+
     def send_results(self, tricks):
         data = str.encode(json.dumps(tricks))
         Server.send(self, data)
