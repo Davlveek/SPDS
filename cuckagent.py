@@ -1,3 +1,4 @@
+import time
 from management.cuckoo.cuckoo_agent import CuckooAgent
 
 if __name__ == '__main__':
@@ -15,6 +16,8 @@ if __name__ == '__main__':
 
         agent.send_cuckoo_report()
         print('Sended cuckoo report')
+
+        time.sleep(180)
 
         agent.close_connection()
         agent.close_socket()
