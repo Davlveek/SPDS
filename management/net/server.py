@@ -27,7 +27,7 @@ class Server:
             print(f'Connection accepting failed\nException: {e}')
 
     def send(self, data):
-        self.connection.send(data)
+        self.connection.sendall(data)
 
     def recv(self, size):
         return self.connection.recv(size)

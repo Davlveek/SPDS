@@ -17,7 +17,7 @@ class Client:
             print(f'Connection to server({self.server_ip} failed\nException:{e})')
 
     def send(self, data):
-        self.sock.send(data)
+        self.sock.sendall(data)
 
     def recv(self, size):
         return self.sock.recv(size)
