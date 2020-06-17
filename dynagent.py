@@ -1,5 +1,6 @@
 from management.dynamorio.dynamorio_agent import DynamoRioAgent
 
+
 if __name__ == '__main__':
     try:
         agent = DynamoRioAgent()
@@ -13,7 +14,7 @@ if __name__ == '__main__':
         print('DynamoRIO analysis finished')
 
         t = agent.form_dict_results()
-        print('Result parsing finished')
+        print('Results parsing finished')
 
         agent.send_results(t)
         print('Results sended to agency')

@@ -4,7 +4,7 @@ from management.dynamorio.dynamorio_agency import DynamoRioAgency
 
 def analysis(file):
     try:
-        agency = DynamoRioAgency(file)
+        agency = DynamoRioAgency()
 
         vm = agency.config['vm']
         snapshot = agency.config['snapshot']
@@ -14,12 +14,12 @@ def analysis(file):
         agency.connect()
         print(f'Connected to agent {agency.server_ip} port {agency.server_port}')
 
-        agency.send_file(agency.file)
+        agency.send_file(file)
         print('Sended file to agent')
 
         tricks = agency.recv_results()
         print('Received dynamorio results from agent')
-        with open('dynamorio.json', 'w') as f:
+        with open('reports\\dynamorio.json', 'w') as f:
             json.dump(tricks, f, sort_keys=False, indent=4)
 
         agency.close()
@@ -29,4 +29,4 @@ def analysis(file):
 
 
 if __name__ == '__main__':
-    analysis('file')
+    analysis('checkProject.exe')
