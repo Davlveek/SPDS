@@ -33,7 +33,7 @@ class VirtualBox:
             return
 
         try:
-            progress = session.concole.powerDown()
+            progress = session.console.powerDown()
             progress.waitForCompletion(-1)
         except Exception as e:
             print(f'Exception: {e}')
