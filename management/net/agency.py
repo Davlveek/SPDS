@@ -22,6 +22,8 @@ class Agency(Client):
                 if not data:
                     break
                 f.write(data)
+                if len(data) != self.size:
+                    break
 
     def recv_results(self):
         data = Client.recv(self, self.size)

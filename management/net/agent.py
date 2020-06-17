@@ -14,6 +14,8 @@ class Agent(Server):
                 if not data:
                     break
                 f.write(data)
+                if len(data) != self.size:
+                    break
 
     def send_file(self, file):
         with open(file, 'rb') as f:
