@@ -3,7 +3,7 @@ from management.cuckoo.cuckoo_agency import CuckooAgency
 
 def analysis(file):
     try:
-        agency = CuckooAgency(file)
+        agency = CuckooAgency()
 
         vm = agency.config['vm']
         snapshot = agency.config['snapshot']
@@ -13,10 +13,10 @@ def analysis(file):
         agency.connect()
         print(f'Connected to agent {agency.server_ip} port {agency.server_port}')
 
-        agency.send_file(agency.file)
+        agency.send_file(file)
         print('Sended file to agent')
 
-        agency.recv_file('report\\cuckoo.json')
+        agency.recv_file('reports\\cuckoo.json')
         print('Received cuckoo report from agent')
 
         agency.close()
