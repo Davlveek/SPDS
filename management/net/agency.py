@@ -3,10 +3,9 @@ from management.net.client import Client
 
 
 class Agency(Client):
-    def __init__(self, ip, port, file):
+    def __init__(self, ip, port):
         Client.__init__(self, ip, port)
-        self.file = file
-        self.size = 8192
+        self.size = 4096
 
     def send_file(self, file):
         with open(file, 'rb') as f:
