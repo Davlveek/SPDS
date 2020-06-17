@@ -4,7 +4,8 @@ from management.virtualbox import VirtualBox
 
 
 class DynamoRioAgency(Agency, VirtualBox):
-    def __init__(self, file):
+    def __init__(self):
         with open('management\\config.json', 'r') as f:
             self.config = json.load(f)['dynamorio']
-        Agency.__init__(self, self.config['address'], self.config['port'], file)
+        Agency.__init__(self, self.config['address'], self.config['port'])
+        VirtualBox.__init__(self)
